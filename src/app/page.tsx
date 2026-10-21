@@ -12,6 +12,8 @@ import AppointmentContact from "@/components/AppointmentContact";
 import Footer from "@/components/Footer";
 import AppointmentModal from "@/components/AppointmentModal";
 import MobileQuickBar from "@/components/MobileQuickBar";
+import PromoPopup from "@/components/PromoPopup";
+import ChatBot from "@/components/ChatBot";
 
 export default function HomePage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -68,6 +70,12 @@ export default function HomePage() {
         onClose={() => setModalOpen(false)}
         initialService={selectedService}
       />
+
+      {/* Promotional / Announcement Invitation Popup */}
+      <PromoPopup onOpenBookingModal={handleOpenBookingModal} />
+
+      {/* Automated Medical Assistant Chatbot */}
+      <ChatBot onOpenBookingModal={handleOpenBookingModal} />
     </div>
   );
 }

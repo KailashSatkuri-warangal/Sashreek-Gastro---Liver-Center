@@ -1,0 +1,101 @@
+{
+  "botName": "Sashreek Care Assistant",
+  "clinicName": "Sashreek Gastro & Liver Center",
+  "welcomeTitle": "Hello! Welcome to Sashreek Gastro & Liver Center; Click here to chat with us.",
+  "welcomeEmoji": "👋",
+  "logoUrl": "/images/sashreek_logo.svg",
+  "initialOptions": [
+    {
+      "id": "appointment",
+      "text": "Looking for Appointment?",
+      "response": "We offer streamlined consultations with Managing Director Mr. Gottumukkala Sashreek and our gastroenterology & liver care team in Balasamudram, Warangal.",
+      "actionType": "modal",
+      "actionLabel": "📅 Book Appointment Online",
+      "secondaryType": "tel",
+      "secondaryLabel": "📞 Call Desk (07947336124)",
+      "secondaryValue": "07947336124"
+    },
+    {
+      "id": "support",
+      "text": "Support/Customer Care",
+      "response": "Our patient support desk is available to assist you with inquiries, scheduling, and guidance during clinic operational hours.",
+      "actionType": "tel",
+      "actionLabel": "📞 Call Support Desk",
+      "actionValue": "07947336124",
+      "secondaryType": "email",
+      "secondaryLabel": "✉️ Email Helpdesk",
+      "secondaryValue": "sashreek12@gmail.com"
+    },
+    {
+      "id": "reports",
+      "text": "Reports & Diagnostics",
+      "response": "Need report verification or test follow-ups? You can bring your prior endoscopy, ultrasound, or liver function blood reports directly to the clinic or inquire with our front desk.",
+      "actionType": "tel",
+      "actionLabel": "📞 Inquire Regarding Reports",
+      "actionValue": "07947336124",
+      "secondaryType": "scroll",
+      "secondaryLabel": "📋 View Diagnostics & Procedures",
+      "secondaryValue": "#services"
+    },
+    {
+      "id": "services",
+      "text": "Treatments & Procedures",
+      "response": "We specialize in Acid Peptic Disease (GERD), Liver Disorders (Fatty Liver, Cirrhosis, Hepatitis), Gallbladder & Pancreatic Care, IBS, and Diagnostic & Therapeutic Endoscopy/Colonoscopy.",
+      "actionType": "scroll",
+      "actionLabel": "🩺 Explore 24+ Services",
+      "actionValue": "#services",
+      "secondaryType": "modal",
+      "secondaryLabel": "📅 Book Consultation",
+      "secondaryValue": "appointment"
+    },
+    {
+      "id": "location",
+      "text": "Location & Timings",
+      "response": "📍 Address: H.No. 1-8-622, Sree Laxmi Test Tube Baby Center, Beside LIC Building, Balasamudram Road, Balasamudram, Warangal-506001, Telangana.\n\n⏰ Timings: Monday – Saturday: 9:00 AM – 8:00 PM | Sunday: 10:00 AM – 2:00 PM",
+      "actionType": "scroll",
+      "actionLabel": "🗺️ Open Location Map",
+      "actionValue": "#contact",
+      "secondaryType": "tel",
+      "secondaryLabel": "📞 Call for Directions",
+      "secondaryValue": "07947336124"
+    }
+  ],
+  "faqKnowledgeBase": [
+    {
+      "keywords": ["appointment", "book", "slot", "consult", "doctor", "schedule"],
+      "response": "You can quickly schedule your visit online via our booking form or directly reach our front desk.",
+      "actionType": "modal",
+      "actionLabel": "📅 Open Appointment Form"
+    },
+    {
+      "keywords": ["phone", "call", "number", "contact", "emergency", "reach"],
+      "response": "You can reach Sashreek Gastro & Liver Center directly at 07947336124 or email sashreek12@gmail.com.",
+      "actionType": "tel",
+      "actionLabel": "📞 Call Now: 07947336124",
+      "actionValue": "07947336124"
+    },
+    {
+      "keywords": ["where", "address", "location", "warangal", "balasamudram", "reach", "landmark"],
+      "response": "We are located beside LIC Building on Balasamudram Road, Balasamudram, Warangal-506001, Telangana.",
+      "actionType": "scroll",
+      "actionLabel": "📍 View on Map",
+      "actionValue": "#contact"
+    },
+    {
+      "keywords": ["time", "timings", "hours", "open", "sunday", "working"],
+      "response": "Clinic operational hours:\nMonday to Saturday: 9:00 AM – 8:00 PM\nSunday: 10:00 AM – 2:00 PM.",
+      "actionType": "tel",
+      "actionLabel": "📞 Confirm Slot with Desk",
+      "actionValue": "07947336124"
+    },
+    {
+      "keywords": ["endoscopy", "colonoscopy", "liver", "gastritis", "fatty liver", "acidity", "treatment"],
+      "response": "Our center provides specialized diagnosis and management for all GI, liver, and biliary conditions with modern endoscopic equipment.",
+      "actionType": "scroll",
+      "actionLabel": "🔍 View Full Services",
+      "actionValue": "#services"
+    }
+  ],
+  "defaultResponse": "Thank you for reaching out to Sashreek Gastro & Liver Center. Our team is available to assist you. Would you like to schedule an appointment or speak with our front desk?",
+  "brandingFooter": "Chat ⚡ by Sashreek Care"
+}
