@@ -49,12 +49,12 @@ export default function HeroBannerSlider({ onOpenBookingModal }: HeroBannerSlide
     setCurrentIndex(idx);
   };
 
-  // Auto-advance slowly every 4.5 seconds (paused on hover)
+  // Auto-advance slowly every 5 seconds (paused on hover)
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
       nextSlide();
-    }, 4500);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [isPaused, nextSlide]);
@@ -84,7 +84,7 @@ export default function HeroBannerSlider({ onOpenBookingModal }: HeroBannerSlide
 
   return (
     <div
-      className="relative w-full mb-8 sm:mb-10 group"
+      className="relative w-full mb-8 sm:mb-12 group"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}
@@ -94,9 +94,9 @@ export default function HeroBannerSlider({ onOpenBookingModal }: HeroBannerSlide
       aria-label="Clinical Highlights & Services Carousel"
     >
       {/* Outer Card Frame (Styled like prestigious Yashoda Hospital banner frame) */}
-      <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-white border border-slate-200/90 shadow-md hover:shadow-lg transition-all duration-300">
+      <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-white border border-slate-200/90 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.1)] transition-all duration-300">
         
-        {/* Slides Track (Smooth side-by-side transition) */}
+        {/* Slides Track (Smooth side-by-side transition, Full-width and True Natural Aspect Ratio) */}
         <div
           className="flex transition-transform duration-1000 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -115,16 +115,16 @@ export default function HeroBannerSlider({ onOpenBookingModal }: HeroBannerSlide
                 }
               }}
               title="Click to Book an Appointment"
-              className="w-full shrink-0 relative h-[96px] xs:h-[116px] sm:h-[145px] md:h-[175px] lg:h-[205px] cursor-pointer bg-slate-50 select-none overflow-hidden"
+              className="w-full shrink-0 relative aspect-[2048/228] cursor-pointer bg-white select-none"
             >
               <Image
                 src={banner.src}
                 alt={banner.alt}
                 fill
                 priority={index === 0}
-                quality={95}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 95vw, 1280px"
-                className="object-cover w-full h-full block"
+                unoptimized
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 95vw, 1400px"
+                className="object-contain w-full h-full block"
               />
             </div>
           ))}
@@ -137,7 +137,7 @@ export default function HeroBannerSlider({ onOpenBookingModal }: HeroBannerSlide
             prevSlide();
           }}
           aria-label="Previous Slide"
-          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/90 hover:bg-white text-navy-950 shadow-md hover:shadow-lg border border-slate-200/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 focus:opacity-100 active:scale-95"
+          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/90 hover:bg-white text-navy-950 shadow-md hover:shadow-lg border border-slate-200/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 focus:opacity-100 active:scale-95 z-20 cursor-pointer"
         >
           <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-navy-900" />
         </button>
@@ -149,13 +149,13 @@ export default function HeroBannerSlider({ onOpenBookingModal }: HeroBannerSlide
             nextSlide();
           }}
           aria-label="Next Slide"
-          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/90 hover:bg-white text-navy-950 shadow-md hover:shadow-lg border border-slate-200/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 focus:opacity-100 active:scale-95"
+          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/90 hover:bg-white text-navy-950 shadow-md hover:shadow-lg border border-slate-200/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 focus:opacity-100 active:scale-95 z-20 cursor-pointer"
         >
           <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-navy-900" />
         </button>
 
-        {/* Pagination Dots */}
-        <div className="absolute bottom-1.5 sm:bottom-2.5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-10 bg-black/20 backdrop-blur-xs px-2.5 py-1 rounded-full">
+        {/* Pagination Dots (Discreet slim indicators) */}
+        <div className="absolute bottom-1 sm:bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-20 bg-slate-900/40 backdrop-blur-xs px-2.5 py-0.5 rounded-full">
           {BANNERS.map((_, idx) => (
             <button
               key={idx}
@@ -166,8 +166,8 @@ export default function HeroBannerSlider({ onOpenBookingModal }: HeroBannerSlide
               aria-label={`Go to slide ${idx + 1}`}
               className={`transition-all duration-300 rounded-full ${
                 currentIndex === idx
-                  ? "w-6 h-1.5 bg-teal-500 shadow-xs"
-                  : "w-1.5 h-1.5 bg-white/70 hover:bg-white"
+                  ? "w-5 h-1 sm:h-1.5 bg-teal-400 shadow-xs"
+                  : "w-1.5 h-1 sm:h-1.5 bg-white/60 hover:bg-white"
               }`}
             />
           ))}
