@@ -12,18 +12,21 @@ const BANNERS = [
   {
     id: "banner-1",
     src: "/images/hero_banner_1.png",
+    mobileSrc: "/images/hero_banner_1_mobile.png",
     alt: "Sashreek Gastro & Liver Center - Expert Gastro & Liver Care for a Healthier Tomorrow",
     title: "Expert Gastro & Liver Care",
   },
   {
     id: "banner-2",
     src: "/images/hero_banner_2.png",
+    mobileSrc: "/images/hero_banner_2_mobile.png",
     alt: "Sashreek Gastro & Liver Center - Specialized Care for Your Digestive & Liver Health",
     title: "Specialized Care for Digestive & Liver Health",
   },
   {
     id: "banner-3",
     src: "/images/hero_banner_3.png",
+    mobileSrc: "/images/hero_banner_3_mobile.png",
     alt: "Sashreek Gastro & Liver Center - Advanced Gastro & Liver Care in Balasamudram, Warangal",
     title: "Advanced Gastro & Liver Care",
   },
@@ -96,7 +99,7 @@ export default function HeroBannerSlider({ onOpenBookingModal }: HeroBannerSlide
       {/* Outer Card Frame (Styled like prestigious Yashoda Hospital banner frame) */}
       <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-white border border-slate-200/90 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.1)] transition-all duration-300">
         
-        {/* Slides Track (Smooth side-by-side transition, Full-width and True Natural Aspect Ratio) */}
+        {/* Slides Track */}
         <div
           className="flex transition-transform duration-1000 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -115,17 +118,33 @@ export default function HeroBannerSlider({ onOpenBookingModal }: HeroBannerSlide
                 }
               }}
               title="Click to Book an Appointment"
-              className="w-full shrink-0 relative aspect-[2048/228] cursor-pointer bg-white select-none"
+              className="w-full shrink-0 cursor-pointer bg-white select-none relative"
             >
-              <Image
-                src={banner.src}
-                alt={banner.alt}
-                fill
-                priority={index === 0}
-                unoptimized
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 95vw, 1400px"
-                className="object-contain w-full h-full block"
-              />
+              {/* Mobile View: High-clarity 800x280 banner with generous 125px-140px height & readable text */}
+              <div className="block sm:hidden relative aspect-[800/280] w-full">
+                <Image
+                  src={banner.mobileSrc}
+                  alt={banner.alt}
+                  fill
+                  priority={index === 0}
+                  unoptimized
+                  sizes="100vw"
+                  className="object-contain w-full h-full block"
+                />
+              </div>
+
+              {/* Desktop View: Full-width uncropped 2048x228 banner (confirmed perfect) */}
+              <div className="hidden sm:block relative aspect-[2048/228] w-full">
+                <Image
+                  src={banner.src}
+                  alt={banner.alt}
+                  fill
+                  priority={index === 0}
+                  unoptimized
+                  sizes="(max-width: 1024px) 95vw, 1400px"
+                  className="object-contain w-full h-full block"
+                />
+              </div>
             </div>
           ))}
         </div>
