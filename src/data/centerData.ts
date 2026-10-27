@@ -24,6 +24,7 @@ export interface BusinessInfo {
   subTagline: string;
   managingDirector: string;
   phone: string;
+  secondaryPhone: string;
   displayPhone: string;
   phoneVerificationNote: string;
   email: string;
@@ -56,8 +57,9 @@ export const businessInfo: BusinessInfo = {
   tagline: "Comprehensive Digestive & Hepatobiliary Healthcare in Warangal",
   subTagline: "Evidence-based gastroenterology, liver care, and advanced endoscopic diagnostics delivered with clinical precision and compassionate care.",
   managingDirector: "Mr. Gottumukkala Sashreek (Managing Director)",
-  phone: "07947336124",
-  displayPhone: "07947336124",
+  phone: "+919550401487",
+  secondaryPhone: "+919618084444",
+  displayPhone: "+91 95504 01487 / +91 96180 84444",
   phoneVerificationNote: "Listed public contact number via directory listing; please confirm prior to major clinical appointments.",
   email: "sashreek12@gmail.com",
   address: {

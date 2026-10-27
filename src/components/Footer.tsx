@@ -26,12 +26,18 @@ export default function Footer() {
                 <MapPin className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
                 <span>{businessInfo.address.fullFormatted}</span>
               </p>
-              <p className="flex items-center gap-2">
+              <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-teal-400 shrink-0" />
-                <a href={`tel:${businessInfo.phone}`} className="hover:text-white transition-colors">
-                  {businessInfo.displayPhone}
-                </a>
-              </p>
+                <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                  <a href={`tel:${businessInfo.phone}`} className="hover:text-white transition-colors">
+                    +91 95504 01487
+                  </a>
+                  <span className="text-slate-500">/</span>
+                  <a href={`tel:${businessInfo.secondaryPhone}`} className="hover:text-white transition-colors">
+                    +91 96180 84444
+                  </a>
+                </div>
+              </div>
               <p className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-teal-400 shrink-0" />
                 <a href={`mailto:${businessInfo.email}`} className="hover:text-white transition-colors">

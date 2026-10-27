@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { businessInfo } from "@/data/centerData";
-import { Phone, Calendar, Menu, X, ChevronRight } from "lucide-react";
+import { Phone, Calendar, Menu, X, ChevronRight, MessageCircle } from "lucide-react";
 import SashreekLogo from "@/components/SashreekLogo";
 
 interface NavbarProps {
@@ -137,14 +137,24 @@ export default function Navbar({ onOpenBookingModal }: NavbarProps) {
 
             {/* Desktop Action CTAs */}
             <div className="hidden sm:flex items-center gap-3">
-              <a
-                href={`tel:${businessInfo.phone}`}
-                className="touch-target inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold text-navy-900 bg-slate-100 hover:bg-teal-50 hover:text-teal-800 rounded-xl border border-slate-200/80 transition-all duration-200 active:scale-98"
-                title="Click to call Sashreek Gastro & Liver Center"
-              >
-                <Phone className="w-3.5 h-3.5 text-teal-600 shrink-0" />
-                <span>{businessInfo.displayPhone}</span>
-              </a>
+              <div className="flex items-center rounded-xl bg-slate-100 border border-slate-200/80 p-0.5 text-xs font-semibold text-navy-900">
+                <a
+                  href={`tel:${businessInfo.phone}`}
+                  className="touch-target inline-flex items-center gap-1.5 px-2.5 py-1.5 hover:bg-white hover:text-teal-800 rounded-lg transition-all"
+                  title="Call primary desk: 9550401487"
+                >
+                  <Phone className="w-3.5 h-3.5 text-teal-600 shrink-0" />
+                  <span>95504 01487</span>
+                </a>
+                <span className="text-slate-300">|</span>
+                <a
+                  href={`tel:${businessInfo.secondaryPhone}`}
+                  className="touch-target inline-flex items-center gap-1.5 px-2.5 py-1.5 hover:bg-white hover:text-teal-800 rounded-lg transition-all"
+                  title="Call secondary desk: 9618084444"
+                >
+                  <span>96180 84444</span>
+                </a>
+              </div>
 
               <button
                 onClick={onOpenBookingModal}
@@ -227,24 +237,31 @@ export default function Navbar({ onOpenBookingModal }: NavbarProps) {
             </div>
 
             {/* Mobile Actions in Drawer */}
-            <div className="pt-6 border-t border-slate-100 flex flex-col gap-3">
+            <div className="pt-6 border-t border-slate-100 flex flex-col gap-2.5">
               <a
                 href={`tel:${businessInfo.phone}`}
-                className="touch-target flex items-center justify-center gap-2 w-full py-3 px-4 text-sm font-semibold text-navy-950 bg-teal-50 hover:bg-teal-100 border border-teal-200 rounded-xl text-center transition-colors"
+                className="touch-target flex items-center justify-center gap-2 w-full py-2.5 px-4 text-xs font-bold text-navy-950 bg-teal-50 hover:bg-teal-100 border border-teal-200 rounded-xl text-center transition-colors"
               >
                 <Phone className="w-4 h-4 text-teal-700" />
-                <span>Call {businessInfo.displayPhone}</span>
+                <span>Call: +91 95504 01487</span>
               </a>
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenBookingModal();
-                }}
-                className="btn-primary touch-target flex items-center justify-center gap-2 w-full py-3 px-4 text-sm font-semibold text-white bg-navy-900 rounded-xl shadow"
+              <a
+                href={`tel:${businessInfo.secondaryPhone}`}
+                className="touch-target flex items-center justify-center gap-2 w-full py-2.5 px-4 text-xs font-bold text-navy-950 bg-teal-50 hover:bg-teal-100 border border-teal-200 rounded-xl text-center transition-colors"
               >
-                <Calendar className="w-4 h-4 text-teal-300" />
-                <span>Book an Appointment</span>
-              </button>
+                <Phone className="w-4 h-4 text-teal-700" />
+                <span>Call: +91 96180 84444</span>
+              </a>
+              <a
+                href="https://wa.me/919550401487?text=Hello%20Sashreek%20Gastro%20%26%20Liver%20Center%2C%20I%20would%20like%20to%20book%20an%20appointment."
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="touch-target flex items-center justify-center gap-2 w-full py-3 px-4 text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl shadow transition-colors"
+              >
+                <MessageCircle className="w-4 h-4 text-emerald-100" />
+                <span>Book on WhatsApp</span>
+              </a>
             </div>
           </div>
         </div>

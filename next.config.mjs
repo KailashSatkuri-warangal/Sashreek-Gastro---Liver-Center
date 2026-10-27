@@ -2,7 +2,6 @@
 const nextConfig = {
   reactStrictMode: true,
   compress: true,
-  cleanDistDir: true,
   images: {
     unoptimized: true,
     formats: ['image/webp', 'image/avif'],

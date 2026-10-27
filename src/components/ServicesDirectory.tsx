@@ -161,7 +161,10 @@ export default function ServicesDirectory({ onSelectServiceForBooking }: Service
             </div>
 
             {/* Category Tabs */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-1 pt-1 scrollbar-none" role="tablist">
+            <div
+              className="flex items-center gap-2.5 overflow-x-auto pb-2 pt-1 no-scrollbar scroll-smooth"
+              role="tablist"
+            >
               {categories.map((cat) => {
                 const isSelected = selectedCategory === cat;
                 return (
@@ -170,18 +173,18 @@ export default function ServicesDirectory({ onSelectServiceForBooking }: Service
                     role="tab"
                     aria-selected={isSelected}
                     onClick={() => setSelectedCategory(cat)}
-                    className={`touch-target px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 ${
+                    className={`shrink-0 min-h-[38px] px-3.5 py-1.5 rounded-xl text-xs sm:text-[13px] font-semibold whitespace-nowrap transition-all duration-200 flex items-center gap-2 cursor-pointer ${
                       isSelected
-                        ? "bg-navy-900 text-white shadow-sm"
-                        : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-navy-950"
+                        ? "bg-navy-900 text-white shadow-sm ring-1 ring-navy-900"
+                        : "bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-navy-950 border border-slate-200/70"
                     }`}
                   >
                     <span>{cat}</span>
                     <span
-                      className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                      className={`text-[11px] font-bold px-2 py-0.5 rounded-full ${
                         isSelected
-                          ? "bg-teal-700 text-teal-100"
-                          : "bg-slate-200 text-slate-600"
+                          ? "bg-teal-500 text-slate-950"
+                          : "bg-slate-200 text-slate-700"
                       }`}
                     >
                       {categoryCounts[cat] || 0}

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { businessInfo, medicalServices } from "@/data/centerData";
-import { X, Calendar, Send, CheckCircle2, AlertCircle, Phone } from "lucide-react";
+import { X, Calendar, Send, CheckCircle2, AlertCircle, Phone, MessageCircle } from "lucide-react";
 
 interface AppointmentModalProps {
   isOpen: boolean;
@@ -260,7 +260,7 @@ export default function AppointmentModal({
                 />
               </div>
 
-              <div className="pt-2">
+              <div className="pt-2 flex flex-col gap-2">
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -275,6 +275,16 @@ export default function AppointmentModal({
                     </>
                   )}
                 </button>
+
+                <a
+                  href="https://wa.me/919550401487?text=Hello%20Sashreek%20Gastro%20%26%20Liver%20Center%2C%20I%20would%20like%20to%20book%20an%20appointment."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="touch-target w-full py-2.5 px-4 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 rounded-xl transition-colors flex items-center justify-center gap-2"
+                >
+                  <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>Or Book Instantly via WhatsApp</span>
+                </a>
               </div>
 
               <div className="text-[10px] text-center text-slate-400">

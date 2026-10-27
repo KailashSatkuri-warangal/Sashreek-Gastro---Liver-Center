@@ -13,7 +13,8 @@ import {
   CheckCircle2,
   ExternalLink,
   ShieldAlert,
-  CreditCard
+  CreditCard,
+  MessageCircle
 } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -126,13 +127,24 @@ export default function AppointmentContact({ preselectedService }: AppointmentCo
 
                 <div className="space-y-3.5">
                   <div>
-                    <div className="text-xs text-slate-500 font-medium">Public Contact Number:</div>
-                    <a
-                      href={`tel:${businessInfo.phone}`}
-                      className="text-xl font-extrabold text-navy-900 hover:text-teal-700 transition-colors inline-block mt-0.5"
-                    >
-                      {businessInfo.displayPhone}
-                    </a>
+                    <div className="text-xs text-slate-500 font-medium">Public Contact Numbers:</div>
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mt-1">
+                      <a
+                        href={`tel:${businessInfo.phone}`}
+                        className="text-lg sm:text-xl font-extrabold text-navy-900 hover:text-teal-700 transition-colors inline-flex items-center gap-1.5"
+                      >
+                        <Phone className="w-4 h-4 text-teal-600" />
+                        <span>+91 95504 01487</span>
+                      </a>
+                      <span className="hidden sm:inline text-slate-300">|</span>
+                      <a
+                        href={`tel:${businessInfo.secondaryPhone}`}
+                        className="text-lg sm:text-xl font-extrabold text-navy-900 hover:text-teal-700 transition-colors inline-flex items-center gap-1.5"
+                      >
+                        <Phone className="w-4 h-4 text-teal-600" />
+                        <span>+91 96180 84444</span>
+                      </a>
+                    </div>
                   </div>
 
                   <div>
@@ -151,6 +163,18 @@ export default function AppointmentContact({ preselectedService }: AppointmentCo
                       <Clock className="w-3.5 h-3.5 text-slate-400" />
                       <span>{businessInfo.operatingHours}</span>
                     </div>
+                  </div>
+
+                  <div className="pt-2 border-t border-slate-200/80">
+                    <a
+                      href="https://wa.me/919550401487?text=Hello%20Sashreek%20Gastro%20%26%20Liver%20Center%2C%20I%20would%20like%20to%20book%20an%20appointment."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="touch-target inline-flex items-center justify-center gap-2 w-full py-2.5 px-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm transition-colors active:scale-98"
+                    >
+                      <MessageCircle className="w-4 h-4 text-emerald-100" />
+                      <span>Chat &amp; Book via WhatsApp (+91 95504 01487)</span>
+                    </a>
                   </div>
                 </div>
               </div>

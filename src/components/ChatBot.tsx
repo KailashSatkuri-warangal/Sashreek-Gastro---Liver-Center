@@ -164,7 +164,7 @@ export default function ChatBot({ onOpenBookingModal }: ChatBotProps) {
     if (action.type === "modal") {
       onOpenBookingModal();
     } else if (action.type === "tel") {
-      window.location.href = `tel:${action.value || "07947336124"}`;
+      window.location.href = `tel:${action.value || "9550401487"}`;
     } else if (action.type === "email") {
       window.location.href = `mailto:${action.value || "sashreek12@gmail.com"}`;
     } else if (action.type === "scroll" && action.value) {

@@ -51,6 +51,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [
+      { url: "/images/sashreek_logo.svg", type: "image/svg+xml" },
+      { url: "/images/sashreek_logo.png", type: "image/png" },
+    ],
+    shortcut: "/images/sashreek_logo.svg",
+    apple: "/images/sashreek_logo.png",
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -104,7 +112,7 @@ export default function RootLayout({
         "url": "https://sashreekgastro.com",
         "logo": "https://sashreekgastro.com/images/sashreek_logo.svg",
         "image": "https://content.jdmagicbox.com/v2/comp/warangal/w6/9999px870.x870.260902104955.e1w6/catalogue/de2vnfbcrfepbin-vqyui0kcn2.jpg",
-        "telephone": businessInfo.phone,
+        "telephone": [businessInfo.phone, businessInfo.secondaryPhone],
         "email": businessInfo.email,
         "priceRange": "₹₹",
         "address": {

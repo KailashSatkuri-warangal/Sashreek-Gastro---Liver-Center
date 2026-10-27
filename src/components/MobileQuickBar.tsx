@@ -2,7 +2,7 @@
 
 import React from "react";
 import { businessInfo } from "@/data/centerData";
-import { Phone, Calendar } from "lucide-react";
+import { Phone, MessageCircle } from "lucide-react";
 
 interface MobileQuickBarProps {
   onOpenBookingModal: () => void;
@@ -26,13 +26,16 @@ export default function MobileQuickBar({ onOpenBookingModal, hideBar = false }: 
           <span>Call Desk</span>
         </a>
 
-        <button
-          onClick={onOpenBookingModal}
-          className="touch-target btn-primary flex items-center justify-center gap-2 py-2.5 px-3 text-xs font-bold shadow-sm active:scale-98"
+        {/* In mobile view: Book Appointment opens WhatsApp message directly */}
+        <a
+          href="https://wa.me/919550401487?text=Hello%20Sashreek%20Gastro%20%26%20Liver%20Center%2C%20I%20would%20like%20to%20book%20an%20appointment."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="touch-target flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm active:scale-98 transition-all"
         >
-          <Calendar className="w-3.5 h-3.5 text-teal-300" />
-          <span>Book Appointment</span>
-        </button>
+          <MessageCircle className="w-3.5 h-3.5 text-emerald-100" />
+          <span>Book on WhatsApp</span>
+        </a>
       </div>
     </aside>
   );

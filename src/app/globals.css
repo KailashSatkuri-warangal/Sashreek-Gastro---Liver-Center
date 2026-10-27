@@ -158,6 +158,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   transform: scale(1);
 }
 
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Motion Preferences */
 @keyframes wave-hand {
   0% { transform: rotate(0deg); }

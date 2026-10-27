@@ -3,9 +3,10 @@
 import React from "react";
 import Image from "next/image";
 import { businessInfo } from "@/data/centerData";
-import { Calendar, Phone, Star, ShieldCheck, MapPin, ArrowRight, Activity, Clock } from "lucide-react";
+import { Calendar, Phone, Star, ShieldCheck, MapPin, ArrowRight, Activity, Clock, MessageCircle } from "lucide-react";
 import SashreekLogo from "@/components/SashreekLogo";
 import ScrollReveal from "@/components/ScrollReveal";
+import HeroBannerSlider from "@/components/HeroBannerSlider";
 
 interface HeroProps {
   onOpenBookingModal: () => void;
@@ -30,22 +31,13 @@ export default function Hero({ onOpenBookingModal }: HeroProps) {
       <div className="absolute bottom-0 left-0 translate-y-16 -translate-x-16 w-[400px] h-[400px] bg-navy-100/40 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Yashoda-Style Auto-Sliding Banners Carousel (3 Images) */}
+        <HeroBannerSlider onOpenBookingModal={onOpenBookingModal} />
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
           {/* Left Column: Clinical Presentation & CTAs */}
           <div className="lg:col-span-7 space-y-6">
-            
-            {/* Trust Pill / Location Badge */}
-            <ScrollReveal delayMs={50}>
-              <div className="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50/90 border border-teal-200/80 text-teal-900 text-xs font-semibold shadow-sm">
-                <span className="flex h-2 w-2 rounded-full bg-teal-600 animate-pulse" />
-                <span>Gastroenterology &amp; Hepatology</span>
-                <span className="text-teal-400">•</span>
-                <span className="flex items-center gap-1 font-bold text-navy-950">
-                  <MapPin className="w-3.5 h-3.5 text-teal-700" /> Balasamudram, Warangal
-                </span>
-              </div>
-            </ScrollReveal>
 
             {/* Headline with Fluid Typography */}
             <ScrollReveal delayMs={150}>
@@ -91,22 +83,45 @@ export default function Hero({ onOpenBookingModal }: HeroProps) {
             {/* Primary & Secondary Action CTAs */}
             <ScrollReveal delayMs={450}>
               <div className="flex flex-wrap items-center gap-3.5 pt-1">
+                {/* Desktop: Opens Interactive Booking Modal */}
                 <button
                   onClick={onOpenBookingModal}
-                  className="btn-primary touch-target px-6 py-3.5 text-sm font-semibold tracking-wide"
+                  className="hidden sm:inline-flex btn-primary touch-target px-6 py-3.5 text-sm font-semibold tracking-wide"
                 >
                   <Calendar className="w-4 h-4 text-teal-300 mr-2" />
                   <span>Book an Appointment</span>
                   <ArrowRight className="w-4 h-4 ml-1.5 opacity-80" />
                 </button>
 
+                {/* Mobile View: Direct WhatsApp Appointment Message */}
                 <a
-                  href={`tel:${businessInfo.phone}`}
-                  className="btn-secondary touch-target px-5 py-3.5 text-sm font-semibold"
+                  href="https://wa.me/919550401487?text=Hello%20Sashreek%20Gastro%20%26%20Liver%20Center%2C%20I%20would%20like%20to%20book%20an%20appointment."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="sm:hidden touch-target inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-md active:scale-98 transition-all"
                 >
-                  <Phone className="w-4 h-4 text-teal-700 mr-2" />
-                  <span>Call {businessInfo.displayPhone}</span>
+                  <MessageCircle className="w-4 h-4 text-emerald-100" />
+                  <span>Book on WhatsApp</span>
                 </a>
+
+                <div className="flex flex-wrap items-center gap-2">
+                  <a
+                    href={`tel:${businessInfo.phone}`}
+                    className="btn-secondary touch-target px-4 py-3 text-xs sm:text-sm font-semibold"
+                    title="Call 9550401487"
+                  >
+                    <Phone className="w-4 h-4 text-teal-700 mr-1.5" />
+                    <span>Call 95504 01487</span>
+                  </a>
+                  <a
+                    href={`tel:${businessInfo.secondaryPhone}`}
+                    className="btn-secondary touch-target px-4 py-3 text-xs sm:text-sm font-semibold"
+                    title="Call 9618084444"
+                  >
+                    <Phone className="w-4 h-4 text-teal-700 mr-1.5" />
+                    <span>96180 84444</span>
+                  </a>
+                </div>
 
                 <a
                   href="#services"
